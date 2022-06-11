@@ -3,6 +3,7 @@ import styles from "./Profile.module.css";
 import MyPosts from "../MyPosts/MyPosts";
 
 const Profile = () => {
+
     return (
         <div className={styles.mainContent}>
             <div className={styles.imageContainer}>
