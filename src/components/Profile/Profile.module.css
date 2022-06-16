@@ -1,7 +1,4 @@
-.mainContent {
-    grid-area: main;
-    background-color: wheat;
-}
+
 .imageContainer img {
     height: 400px;
     width: 800px;
