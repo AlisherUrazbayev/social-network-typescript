@@ -1,0 +1,24 @@
+.container {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs {
+    padding: 10px;
+}
+
+.dialogs div {
+    padding: 5px;
+}
+
+.selected {
+    color: cornflowerblue;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.messages div {
+    padding: 5px;
+}
