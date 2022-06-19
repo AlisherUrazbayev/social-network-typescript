@@ -1,18 +1,25 @@
 import React from "react";
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+type MyPostsPropsType = {
+    posts: PostType[]
+}
+
+type PostType = {
+    id: number
+    message: string
+    likeCount: number
+}
+
+const MyPosts = (props: MyPostsPropsType) => {
     return (
         <div>
             <div>My Posts</div>
             <textarea name="post" id="" cols={30} rows={10}></textarea>
             <button>Add post</button>
-            <Post message="Hello this my first post"
-                  likeCount={5}/>
-            <Post message="This is how props work"
-                  likeCount={52}/>
-            <Post message="Got my first React project set up"
-                  likeCount={18}/>
+            {props.posts.map((post) => {
+                return <Post message={post.message} likeCount={post.likeCount} />
+            })}
         </div>
     );
 }

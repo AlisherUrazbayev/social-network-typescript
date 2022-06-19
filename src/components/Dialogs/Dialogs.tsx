@@ -2,9 +2,22 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
+type DialogsPropsType ={
+    messages: MessagesType[]
+    userInfo: UserInfoType[]
+}
+
+type UserInfoType = {
+    id: number
+    name: string
+}
+
+type MessagesType = {
+    text: string
+}
 
 type DialogItemPropsType = {
-    _id: string
+    _id: number
     name: string
 }
 
@@ -23,21 +36,16 @@ const Message = ({text}: MessagePropsType) => {
 }
 
 
-function Dialogs() {
+function Dialogs(props: DialogsPropsType) {
     return (
         <div className={styles.container}>
-
             <div className={styles.dialogs}>
-                <DialogItem _id={'1'} name={'Person-1'}/>
-                <DialogItem _id={'2'} name={'Person-2'}/>
-                <DialogItem _id={'3'} name={'Person-3'}/>
-                <DialogItem _id={'4'} name={'Person-4'}/>
+                {props.userInfo.map((user) => {
+                    return <DialogItem _id={user.id} name={user.name}/>
+                })}
             </div>
             <div className={styles.messages}>
-                <Message text={'Message-1'}/>
-                <Message text={'Message-2'}/>
-                <Message text={'Message-3'}/>
-                <Message text={'Message-4'}/>
+                {props.messages.map(message => <Message text={message.text}/>)}
             </div>
         </div>
     );
